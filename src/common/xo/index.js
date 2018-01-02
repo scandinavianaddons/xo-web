@@ -1,4 +1,3 @@
-import asap from 'asap'
 import cookies from 'cookies-js'
 import fpSortBy from 'lodash/fp/sortBy'
 import React from 'react'
@@ -159,7 +158,7 @@ export const resolveUrl = invoke(
 
 // -------------------------------------------------------------------
 
-const createSubscription = cb => {
+const createSubscription = (cb, initialValue) => {
   const delay = 5e3
 
   const subscribers = Object.create(null)
@@ -220,12 +219,14 @@ const createSubscription = cb => {
     const id = nextId++
     subscribers[id] = cb
 
-    if (n++ !== 0) {
-      if (cache !== undefined) {
-        asap(() => cb(cache))
-      }
-    } else {
+    if (n++ === 0) {
       loop()
+    }
+
+    if (cache !== undefined) {
+      cb(cache)
+    } else if (initialValue !== undefined) {
+      cb(initialValue)
     }
 
     return once(() => {

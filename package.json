@@ -33,7 +33,6 @@
   "devDependencies": {
     "@nraynaud/novnc": "0.6.1",
     "ansi_up": "^2.0.2",
-    "asap": "^2.0.6",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.1.2",
     "babel-plugin-dev": "^1.0.0",
