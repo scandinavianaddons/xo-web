@@ -92,6 +92,10 @@
     normalize-path "^2.0.1"
     through2 "^2.0.3"
 
+"@julien-f/freactal@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@julien-f/freactal/-/freactal-0.0.2.tgz#050a329f3d09c3ef6217c6c740f0dea69c9e4cef"
+
 "@nraynaud/novnc@0.6.1":
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/@nraynaud/novnc/-/novnc-0.6.1.tgz#995459bb6f7bd5dd9bd7899b021f68f7744cf1b3"

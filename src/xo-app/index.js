@@ -22,6 +22,7 @@ import { Container, Row, Col } from 'grid'
 
 import About from './about'
 import Backup from './backup'
+import Backup2 from './backup2'
 import Dashboard from './dashboard'
 import Home from './home'
 import Host from './host'
@@ -74,6 +75,7 @@ const BODY_STYLE = {
 @routes('home', {
   about: About,
   backup: Backup,
+  backup2: Backup2,
   dashboard: Dashboard,
   home: Home,
   'hosts/:id': Host,

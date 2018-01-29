@@ -4,12 +4,12 @@ import ButtonGroup from 'button-group'
 import Component from 'base-component'
 import Icon from 'icon'
 import Link from 'link'
-import LogList from '../../logs'
 import NoObjects from 'no-objects'
 import React from 'react'
 import SortedTable from 'sorted-table'
 import StateButton from 'state-button'
 import Tooltip from 'tooltip'
+import { injectState, provideState } from '@julien-f/freactal'
 import { addSubscriptions } from 'utils'
 import { createSelector } from 'selectors'
 import { Card, CardHeader, CardBlock } from 'card'
@@ -23,6 +23,8 @@ import {
   subscribeSchedules,
   subscribeUsers,
 } from 'xo'
+
+import LogList from '../logs'
 
 // ===================================================================
 

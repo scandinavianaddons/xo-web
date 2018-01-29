@@ -275,10 +275,6 @@ export const subscribeResourceSets = createSubscription(() =>
   _call('resourceSet.getAll')
 )
 
-export const subscribeScheduleTable = createSubscription(() =>
-  _call('scheduler.getScheduleTable')
-)
-
 export const subscribeSchedules = createSubscription(() =>
   _call('schedule.getAll')
 )
@@ -1485,7 +1481,7 @@ export const deleteBackupSchedule = async schedule => {
     body: _('deleteBackupScheduleQuestion'),
   })
   await _call('schedule.delete', { id: schedule.id })
-  await _call('job.delete', { id: schedule.job })
+  await _call('job.delete', { id: schedule.jobId })
 
   subscribeSchedules.forceRefresh()
   subscribeJobs.forceRefresh()
@@ -1509,11 +1505,11 @@ export const deleteSchedules = schedules =>
   )
 
 export const disableSchedule = id =>
-  _call('scheduler.disable', { id })::tap(subscribeScheduleTable.forceRefresh)
+  editSchedule({ id, enabled: false })
 
 export const editSchedule = ({
   id,
-  job: jobId,
+  jobId,
   cron,
   enabled,
   name,
@@ -1524,7 +1520,7 @@ export const editSchedule = ({
   )
 
 export const enableSchedule = id =>
-  _call('scheduler.enable', { id })::tap(subscribeScheduleTable.forceRefresh)
+  editSchedule({ id, enabled: true })
 
 export const getSchedule = id => _call('schedule.get', { id })
 
